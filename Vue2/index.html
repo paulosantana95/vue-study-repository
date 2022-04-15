@@ -9,9 +9,13 @@
 <body>
     
     <div id="app">
-        <span v-bind:title="message">
-            <h1>Pare o mouse sobre mim e veja a dica interligada dinamicamente!</h1>
-        </span>
+        <h1>{{ titulo }}</h1>
+        <div v-if="usuario.id == 1">
+            id: {{ usuario.id }} <br>
+            nome: {{ usuario.nome }} <br>
+            profissão: {{ usuario.profissao }}
+        </div>
+        <div v-else>Nenhum usuário com o id encontrado.</div>
     </div>
     
     
@@ -21,7 +25,12 @@
         var app = new Vue({
             el: '#app',
             data: {
-            message: 'Você carregou esta página em ' + new Date().toLocaleString()
+                titulo: "Vuejs do jeito ninja!",
+                usuario: {
+                    id: 2,
+                    nome: "jon Snow",
+                    profissao: "Ator"
+                }
             }
         })
     </script>
