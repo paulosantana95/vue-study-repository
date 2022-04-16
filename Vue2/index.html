@@ -13,11 +13,7 @@
     
     <div id="app">
         <h1>{{ titulo }}</h1>
-        <button class="btn" :class="btnClassLimpar" v-bind:style="btnStyleLimpar">LIMPAR</button>
-        <button class="btn" :class="btnClassEnviar" v-bind:style="btnStyleEnviar">ENVIAR</button>
-
-
-
+        {{ fullName }}
     </div>
     
     
@@ -26,24 +22,34 @@
     <script>
         var app = new Vue({
             el: '#app',
+
             data: {
                 titulo: "Vuejs do jeito ninja!",
-                btnClassLimpar: {
-                    'btn-danger': true,
-                    'btn-sm': true
+                firstName: "",
+                lastName: "",
+            },
+
+            computed: {
+                fullName() {
+                    return this.firstName + ' ' + this.lastName;
+                }
+                
+            },
+
+            watch: {
+                firstName(newValue) {
+                    this.updateUser();
                 },
-                btnClassEnviar: [
-                'btn-primary', {'btn-lg': false}
-                ],
-                btnStyleLimpar:{
-                    'font-size': '50px',
-                    'text-transform': 'lowercase'
-                },
-                btnStyleEnviar: {
-                    'font-size': '10px'
+
+            },
+
+
+            methods: {
+                updateUser() {
+                    console.log('Usuário atualizado!');
                 }
             }
-        })
+        });
     </script>
 </body>
 </html>
