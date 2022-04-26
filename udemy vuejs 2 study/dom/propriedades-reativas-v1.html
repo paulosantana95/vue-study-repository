@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <div id="app">
+        <p> {{ titulo }} </p>
+        <input type="text" v-model="titulo">
+
+        <!-- O V-MODEL AJUDA NO TWO WAY DATA BIND PARA FAZER MUDANÇAS EM DUAS DIREÇÕES
+        ONDE EU ATUALIZO O DADO TANTO NO INPUT QUANTO NA VARIAVEL NO HTML! -->
+
+    </div>
+
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS',
+        },
+    })
+
+
+</script>
